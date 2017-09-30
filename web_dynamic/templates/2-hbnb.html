@@ -4,7 +4,7 @@
 
     <!-- HEAD -->
     <SCRIPT src="https://code.jquery.com/jquery-3.2.1.min.js"></SCRIPT>
-    <script src="/static/scripts/3-hbnb.js?{{ cache_id }}"></script>
+    <script src="/static/scripts/2-hbnb.js?{{ cache_id }}"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Holberton AirBnB</title>
@@ -93,15 +93,17 @@
 	     BEGIN 1 PLACE
 	     ********************** -->
 
+	  {% for place in places|sort(attribute='name') %}
+
 	  <article>
 
 	    <div class="title">
 
-	      <h2><!---place name --></h2>
+	      <h2>{{ place.name }}</h2>
 
 	      <div class="price_by_night">
 
-		<!--place's price by night went here -->
+		{{ place.price_by_night }}
 
 	      </div>
 	    </div>
@@ -111,7 +113,7 @@
 
 		<br />
 
-		<!---place's max guest--> Guests
+		{{ place.max_guest }} Guests
 
 	      </div>
 	      <div class="number_rooms">
@@ -119,14 +121,14 @@
 
 		<br />
 
-		<!--place's number of rooms -->Bedrooms
+		{{ place.number_rooms }} Bedrooms
 	      </div>
 	      <div class="number_bathrooms">
 		<i class="fa fa-bath fa-3x" aria-hidden="true"></i>
 
 		<br />
 
-		<!---place's number of bathrooms--> Bathroom
+		{{ place.number_bathrooms }} Bathroom
 
 	      </div>
 	    </div>
@@ -137,17 +139,18 @@
 
 	    <div class="user">
 
-	      <strong>Owner: <!--place user id of the owner--></strong>
+	      <strong>Owner: {{ users[place.user_id] }}</strong>
 
 	    </div>
 	    <div class="description">
 
-	      <!--place description-->
+	      {{ place.description }}
 
 	    </div>
 
 	  </article> <!-- End 1 PLACE Article -->
 
+	  {% endfor %}
 
 	</section>
       </div>
