@@ -1,4 +1,4 @@
-$.get('http://0.0.0.0:5001/api/v1/status/', function (data) {$(document).ready(function(){
+$(document).ready(function(){
   let amenityDictionary = {};
   $.get('http://0.0.0.0:5001/api/v1/status/', function (data) {
     if (data.status == "OK") {
