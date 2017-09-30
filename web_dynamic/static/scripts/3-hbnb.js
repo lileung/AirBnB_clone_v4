@@ -1,5 +1,6 @@
 $(document).ready(function(){
   let amenityDictionary = {};
+
   $.ajax({
      url: 'http://0.0.0.0:5001/api/v1/places_search/',
      type: 'post',
@@ -11,16 +12,38 @@ $(document).ready(function(){
 	     /*TITLE*/
 	     let title = $('<div/>', {class: 'title'}).appendTo(article); /*create title*/
 	     let h2title = $('<h2/>', {text:"hello title"}).appendTo(title); /*append to title*/
+             $('<div/>', { class: 'price_by_night', text: data[i].price_by_night}).appendTo(title);
 
 	     /*INFORMATION*/
 	     let infoContainer = $('<div/>', {class: 'information'}).appendTo(article);
              let maxGuest = $('<div/>', {class: 'max_guest'}).appendTo(infoContainer);
-	     
-	     /*
-	     let guestIcon = $('<i/>', {class: 'fa fa-users fa-3x', aria-hidden:'true'}).appendTo(maxGuest);
-	     */
+	     let numberRoom = $('<div/>', {class: 'number_rooms'}).appendTo(infoContainer);
+	     let numberBath = $('<div/>', {class: 'number_bathrooms'}).appendTo(infoContainer);
 
-	     $('<div/>', { class: 'price_by_night', text: data[i].price_by_night}).appendTo(title);
+	     /*GUEST ICON*/
+	     let guestIcon = $('<i/>', {class: 'fa fa-users fa-3x'}).appendTo(maxGuest);
+	     $('<br/>').appendTo(maxGuest);
+	     $('<div/>', {text: "5"}).appendTo(maxGuest);
+
+	     /*NUMBER OF ROOMS*/
+             let roomIcon = $('<i/>', {class: 'fa fa-bed fa-3x'}).appendTo(numberRoom);
+             $('<br/>').appendTo(numberRoom);
+             $('<div/>', {text: "5"}).appendTo(numberRoom);
+
+             /*NUMBER OF BATHS*/
+             let bathIcon = $('<i/>', {class: 'fa fa-bath fa-3x'}).appendTo(numberBath);
+             $('<br/>').appendTo(numberBath);
+             $('<div/>', {text: "5"}).appendTo(numberBath);
+
+             /*USER*/
+             let user = $('<div/>', {class: 'user'});
+             $('<strong/>', {text : 'Owner: '}).appendTo(user);
+             user.appendTo(article);
+
+             /*DESCRIPTION*/
+	     let description = $('<div/>', {class: 'description', text: 'some description here'}).appendTo(user);
+
+
 	     $('.places').append(article);
          }
      },
