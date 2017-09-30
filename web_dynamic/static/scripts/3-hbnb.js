@@ -43,10 +43,9 @@ $(document).ready(function(){
                 url: 'http://0.0.0.0:5001/api/v1/users/' + data[i]['user_id'],
 		type: 'get',
 		success: function(userData ){
-		  $('<strong/>', {text : 'Owner: ' + userData['first_name'] + " " + userData['last_name']}).appendTo(user);             
+		  $('<strong/>', {text : 'Owner: ' + userData['first_name'] + " " + userData['last_name']}).appendTo(user); 
 		  user.appendTo(article);
              let description = $('<div/>', {class: 'description', text: data[i]['description']}).appendTo(user);
-		  console.log(userData);
 		}
 	     });
 
