@@ -6,26 +6,14 @@ $(document).ready(function(){
      contentType: 'application/json',
      data: JSON.stringify({}),
      success: function(data ){
-	 for (let i = 0; i < data.length; i++) {
-	     let article = $('<article>');
-	     /*TITLE*/
-	     let title = $('<div/>', {class: 'title'}).appendTo(article); /*create title*/
-	     let h2title = $('<h2/>', {text:"hello title"}).appendTo(title); /*append to title*/
-
-	     /*INFORMATION*/
-	     let infoContainer = $('<div/>', {class: 'information'}).appendTo(article);
-             let maxGuest = $('<div/>', {class: 'max_guest'}).appendTo(infoContainer);
-	     
-	     /*
-	     let guestIcon = $('<i/>', {class: 'fa fa-users fa-3x', aria-hidden:'true'}).appendTo(maxGuest);
-	     */
-
-	     $('<div/>', { class: 'price_by_night', text: data[i].price_by_night}).appendTo(title);
-	     $('.places').append(article);
-         }
+       for (let i = 0; i < data.length; i++) {
+	 let article = $('<article>');
+         article.append("div", data[i].price_by_night);
+         $(".places").append(article);
+       }
      },
      error: function( jqXhr, textStatus, errorThrown ){
-       console.log( errorThrown );
+       console.log(errorThrown);
      }
   });
   $.get('http://0.0.0.0:5001/api/v1/status/', function (data) {
