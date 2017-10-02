@@ -211,7 +211,8 @@ Uses [Travis-CI](https://travis-ci.org/) to run all tests on all commits to the
 github repo
 
 ## Authors
-
+* Naomi Sorrell, [@namodawn](https://twitter.com/namodawn)
+* Lisa Leung, [@lisale01](https://twitter.com/lisale01)
 * MJ Johnson, [@mj31508](https://github.com/mj31508)
 * David John Coleman II, [davidjohncoleman.com](http://www.davidjohncoleman.com/) | [@djohncoleman](https://twitter.com/djohncoleman)
 * Kimberly Wong, [kjowong](https://github.com/kjowong) | [@kjowong](https://twitter.com/kjowong) | [kjowong@gmail.com](kjowong@gmail.com)
